@@ -1,0 +1,44 @@
+/* Etiqueta de título */
+#titulo_label {
+    font-size: 18px; 
+    color: #3498db; 
+    font-weight: bold; 
+}
+
+/* Ventana principal en Qt */
+QMainWindow {
+    background-color: #f0f0f0; 
+    color: #000000; 
+    font-family: "Poppins", sans-serif; 
+}
+
+/* Area de texto en Qt */
+QTextEdit {
+    background-color: #ffffff; 
+    border: 3px solid #3498db; 
+    color: #000000; 
+    font-size: 14px; 
+    padding: 10px;
+}
+
+/* Botón en Qt */
+QPushButton {
+    background-color: #ffffff; 
+    border: 3px solid #3498db; 
+    color: #3498db; 
+    font-size: 14px; 
+    font-family: "Poppins", sans-serif; 
+    font-weight: bold; 
+    padding: 15px 16px; 
+    border-radius: 8px; 
+}
+
+QPushButton:hover {
+    background-color: #3498db; 
+    color: #ffffff; 
+}
+
+QPushButton:pressed {
+    background-color: #007BFF; 
+    color: #ffffff; 
+}
