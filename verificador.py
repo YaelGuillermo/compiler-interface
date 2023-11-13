@@ -2,6 +2,9 @@ import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QTextEdit, QPushButton, QVBoxLayout, QWidget, QLabel, QMessageBox
 from PyQt5.QtCore import QFile
 import subprocess
+import platform
+
+ejecutable = "sintax.exe" if platform.system() == "Windows" else "./sintax.exe"
 subprocess.run("flex lexico.l", shell=True)
 subprocess.run("bison sintactico.y", shell=True)
 subprocess.run("gcc lex.yy.c sintactico.tab.c -o sintax.exe", shell=True)
@@ -47,7 +50,7 @@ class VerificadorSintacticoApp(QMainWindow):
         with open("programa.txt", "w") as archivo:
             archivo.write(codigo)  # Escribe el código en un archivo
         # Ejecuta el analizador sintáctico
-        proceso = subprocess.Popen(["./sintax.exe", "programa.txt"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        proceso = subprocess.Popen([ejecutable, "programa.txt"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         salida, error = proceso.communicate()
         if proceso.returncode == 0:
             QMessageBox.information(self, "Éxito", "Compilación realizada correctamente.")
