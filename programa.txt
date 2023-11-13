@@ -1,1 +1,119 @@
-aaa
+/* Programa escrito en YAAN! para un alumno de 1er semestre */
+>>include<<System! // (1)
+>>include<<Turtle!
+>>include<<Models!
+from math import pi // (14)
+from math import funtrig
+
+(-5:int) numero1! // (2)
+(10:int) numero2!
+("Yael Gonzalez":string) alumno1!
+("Angela Jauregui":string) alumno2!
+
+(double) calif! // (3)
+(int) edad!
+
+main{ // (4)
+    (0.5: float) equis!
+    void cout["  U1 T1. FUND. PROGR."]! // (7)
+    void print["Mostrar un número equis: "]!
+    void print[equis]!
+    void print["Hola mundo"]! // Hola mundo
+    if [equis;numero1] >= // (9) 
+    (assert cond1, "Equis es mayor que el primer número") // (20)
+    elif[equis;numero1] <=
+    (assume cond2, "Equis es menor que el primer número")
+	elif[equis;numero1] ==
+    (assume cond2, "Equis es igual que el primer número")
+    else
+    (
+        assert cond3, "Gracias por leer"
+    )!	
+	// (8)
+	def suma[]! // Llamada a función
+	def resta[]! // Llamada a función
+	void oparit[]! //Llamada a método
+
+	switch(a) // (18)
+	{
+		case 1:
+			def suma[]!
+		break
+		case 2:
+			void put["caso 2 "]!
+		break
+		case 3:
+			def resta[]!
+		break
+		case 4:
+			void put["caso 3 "]!
+		break
+		case 5:
+			void infinito[]!
+		break
+	}	
+}!
+
+suma def{ // (5)
+	(10:int) suma2!
+	raiz = sqrt(suma2, 2)
+	return [suma2]
+}!
+resta def{
+	(10:int) resta2!
+	potencia = pow(resta2, 3)
+	for	i in range (5): // (11)
+		LEER = input("Escribe una calif") // (17)
+	return [resta2]
+}!
+
+oparit void{ // (6)
+	while[a<=2]{ // (10)
+		with open() as field: // (15)
+			nombreArchivo = input("Ingrese el archivo")
+	}!
+	noreturn
+}!
+
+infinito void{
+	( 2	: int )	cont !	
+	for	j in range (10): // (11)
+		for	k in range (cont):
+			for	l in range (5):
+				assert perfecto_ , "Bucle tridimensional"
+	
+
+	try: // (13)
+		cont = pow(cont, 2) // (19)
+		except ErrorPotencia:
+			void print["No se puede aplicar dicha funcion"]!
+			else: 
+				if cont < 0 : //(16)
+					void print["No se puede aplicar dicha funcion"]!
+					else : 
+						void cout["Ojalá todo fuera como antes"]!
+						void cout["Ojalá todo fuera como antes"]!
+				finally:
+					assume respuesta , "Try finalizado"
+
+	noreturn	
+}!
+
+OtroProcedimiento void{
+	try: // (12)
+		minimizarNumero = floor(4, 1)
+		except NoSePuede:
+			void print["No se puede aplicar dicha funcion"]!
+
+	switch(numero1)
+	{
+		case 1:
+			x = scanf("Escribe un numero x")
+		break
+		case 2:
+			y = scanf("Escribe un numero y")
+		break
+	}	
+
+	noreturn	
+}!
