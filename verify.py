@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QTextEdit, QPushButton, QVBoxLayout, QWidget, QLabel, QMessageBox, QFileDialog
+from PyQt5.QtWidgets import QApplication, QMainWindow, QTextEdit, QPushButton, QVBoxLayout, QWidget, QLabel, QMessageBox, QFileDialog, QGridLayout
 from PyQt5.QtCore import QFile
 import subprocess
 import platform
@@ -26,6 +26,8 @@ class VerificadorSintacticoApp(QMainWindow):
         # Crear botón para abrir archivo
         self.boton_verificar_sintactico = QPushButton("Abrir archivo")
 
+        self.boton_limpiar_pantalla = QPushButton("Limpiar pantalla")
+
         # Crear caja de texto para la verificación sintáctica
         self.entrada_texto_sintactico = QTextEdit()
         self.entrada_texto_sintactico.setPlaceholderText("Abre un archivo o escribe tu código aquí...")
@@ -51,35 +53,53 @@ class VerificadorSintacticoApp(QMainWindow):
         self.entrada_texto_semantico = QTextEdit()
         self.entrada_texto_semantico.setReadOnly(True)
 
-        # Establecer diseños y estilos
-        layout = QVBoxLayout()
+        # Establecer el diseño con QGridLayout
+        layout = QGridLayout()
 
-        # Agregar el botón y caja de texto para la verificación sintáctica
-        layout.addWidget(self.boton_verificar_sintactico)
-        layout.addWidget(self.entrada_texto_sintactico)
+        # Colocar elementos en la parte superior
+        layout.addWidget(self.boton_verificar_sintactico, 0, 0)
+        layout.addWidget(self.entrada_texto_sintactico, 1, 0)
+        layout.addWidget(self.boton_analizar_lexico, 0, 1)
+        layout.addWidget(self.entrada_texto_lexico, 1, 1)
 
-        # Agregar el botón y caja de texto para el análisis léxico
-        layout.addWidget(self.boton_analizar_lexico)
-        layout.addWidget(self.entrada_texto_lexico)
+        # Colocar elementos en la parte inferior
+        layout.addWidget(self.boton_analizar_sintactico, 2, 0)
+        layout.addWidget(self.entrada_texto_sintactico_analisis, 3, 0)
+        layout.addWidget(self.boton_analizar_semantico, 2, 1)
+        layout.addWidget(self.entrada_texto_semantico, 3, 1)
 
-        # Agregar el botón y caja de texto para el análisis sintáctico
-        layout.addWidget(self.boton_analizar_sintactico)
-        layout.addWidget(self.entrada_texto_sintactico_analisis)
-
-        # Agregar el botón y caja de texto para el análisis semántico
-        layout.addWidget(self.boton_analizar_semantico)
-        layout.addWidget(self.entrada_texto_semantico)
+        # Colocar botón de limpiar pantalla y etiqueta informativa
+        layout.addWidget(self.boton_limpiar_pantalla, 4, 1)
+        info_label = QLabel("Alumnos: González Hernández Yael Guillermo - 20211785, "
+                            "Morales Castillo Cesar Andree - 20211816\n"
+                            "Nombre del Docente: M.C. Luis Alfonso Gaxiola Vega\n"
+                            "Materia: Lenguajes y Autómatas II")
+        layout.addWidget(info_label, 4, 0)  # Ocupa 1 fila y 2 columnas
 
         central_widget = QWidget()
         central_widget.setLayout(layout)
         self.setCentralWidget(central_widget)
 
+        # Cargar el archivo CSS y aplicar los estilos
+        css_file = QFile("style.css")
+        css_file.open(QFile.ReadOnly | QFile.Text)
+        styleSheet = css_file.readAll().data().decode("utf-8")
+        self.setStyleSheet(styleSheet)
+
         # Conectar los botones a las funciones correspondientes
+        self.boton_limpiar_pantalla.clicked.connect(self.limpiar_pantalla)
         self.boton_verificar_sintactico.clicked.connect(self.abrir_archivo)
         self.boton_analizar_lexico.clicked.connect(self.analizar_lexico)
         self.boton_analizar_sintactico.clicked.connect(self.analizar_sintactico)
         self.boton_analizar_semantico.clicked.connect(self.analizar_semantico)
-
+    
+    def limpiar_pantalla(self):
+        # Limpiar todos los cuadros de texto
+        self.entrada_texto_sintactico.clear()
+        self.entrada_texto_lexico.clear()
+        self.entrada_texto_sintactico_analisis.clear()
+        self.entrada_texto_semantico.clear()
+    
     def abrir_archivo(self):
         opciones = QFileDialog.Options()
         opciones |= QFileDialog.ReadOnly

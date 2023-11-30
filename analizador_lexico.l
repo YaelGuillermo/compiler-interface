@@ -309,7 +309,7 @@ int main(int argc, char* argv[]) {
     // Obtener los identificadores encontrados
     struct Identificador* identificadores = obtenerIdentificadores();
     if (identificadores != NULL) {
-        printf("\n\tTABLA DE SIMBOLOS");
+        printf("\n\n\tTABLA DE SIMBOLOS");
         printf("\nIDENTIFICADOR\t\t\tValor de atributo");
         for (int i = 0; i < numIdentificadores; i++) {
             printf("\n%s\t\t\t%d", identificadores[i].nombre, identificadores[i].valor_inicial);

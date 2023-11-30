@@ -15,18 +15,18 @@ QMainWindow {
 /* Area de texto en Qt */
 QTextEdit {
     background-color: #ffffff; 
-    border: 3px solid #3498db; 
+    border: 2px solid #3498db; 
     color: #000000; 
-    font-size: 14px; 
+    font-size: 12px; 
     padding: 10px;
 }
 
 /* Botón en Qt */
 QPushButton {
     background-color: #ffffff; 
-    border: 3px solid #3498db; 
+    border: 2px solid #3498db; 
     color: #3498db; 
-    font-size: 14px; 
+    font-size: 12px; 
     font-family: "Poppins", sans-serif; 
     font-weight: bold; 
     padding: 15px 16px; 
