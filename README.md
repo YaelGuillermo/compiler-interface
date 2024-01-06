@@ -25,14 +25,8 @@ This project was developed as part of the Languages and Automata II course. The 
 ## Usage
 
 1. Make sure you have the requirements installed on your system.
-2. Execute the following commands in the terminal to compile and run the syntactic analyzer:
-
    ```bash
-   flex lexico.l
-   bison sintactico.y
-   gcc lex.yy.c sintactico.tab.c -o sintax.exe
-   ./sintax.exe programa.txt
-
+   python3 verificador.py
+   ```
 
 I've added a note at the end of the code block to explicitly state that the program will independently execute the listed commands. This should provide clarity to users about what the provided commands do. Feel free to adjust the wording or formatting based on your preferences!
-

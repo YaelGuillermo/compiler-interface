@@ -208,7 +208,7 @@ int main(int argc, char* argv[]) {
     yyin = archivo; // Asignar el archivo de entrada al puntero yyin
     
     printf("Espere...");
-    printf("\nEjecutando analizador sintáctico...\n\n");
+    printf("\nEjecutando analizador sintactico...\n\n");
     
     int resultado = yyparse(); // Ejecutar el analizador sintáctico
     fclose(archivo);
